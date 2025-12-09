@@ -9,7 +9,6 @@ CREATE TABLE orders (
 );
 
 -- 2. Заполнение таблицы большим объёмом случайных данных
-
 -- Генерируем 500,000 записей с различными данными
 INSERT INTO orders (customer_name, order_code, notes, created_at)
 SELECT
@@ -41,10 +40,6 @@ FROM generate_series(1, 500000) AS i;
 SELECT COUNT(*) AS total_records FROM orders;
 
 -- 3. Выборка по точному совпадению order_code БЕЗ индекса
-
--- Включаем отображение времени выполнения
-\timing on
-
 -- EXPLAIN ANALYZE для детального анализа
 EXPLAIN ANALYZE
 SELECT *
@@ -65,19 +60,13 @@ SELECT *
 FROM orders
 WHERE order_code = 'ORD-00400000';
 
-\timing off
-
 -- 4. Создание обычного индекса на order_code
-
 CREATE INDEX idx_orders_order_code ON orders(order_code);
 
 -- Обновление статистики
 ANALYZE orders;
 
 -- 5. Повторная выборка по order_code С индексом
-
-\timing on
-
 -- EXPLAIN ANALYZE для сравнения с п.3
 EXPLAIN ANALYZE
 SELECT *
@@ -98,12 +87,7 @@ SELECT *
 FROM orders
 WHERE order_code = 'ORD-00400000';
 
-\timing off
-
 -- 6. Выборка по подстроке в notes БЕЗ специального индекса
-
-\timing on
-
 -- EXPLAIN ANALYZE для анализа
 EXPLAIN ANALYZE
 SELECT *
@@ -124,15 +108,11 @@ SELECT COUNT(*)
 FROM orders
 WHERE notes ILIKE '%Camera%';
 
-\timing off
-
 -- 7. Создание индекса на вычисляемое выражение для ILIKE
-
 -- Создаем индекс на LOWER(notes) для регистронезависимого поиска
 CREATE INDEX idx_orders_notes_lower ON orders(LOWER(notes));
 
 -- Альтернативный вариант: GIN индекс с pg_trgm для поиска подстрок
--- Требует расширение pg_trgm
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 CREATE INDEX idx_orders_notes_trgm ON orders USING GIN (notes gin_trgm_ops);
@@ -141,9 +121,6 @@ CREATE INDEX idx_orders_notes_trgm ON orders USING GIN (notes gin_trgm_ops);
 ANALYZE orders;
 
 -- 8. Повторная выборка по подстроке С индексом
-
-\timing on
-
 -- EXPLAIN ANALYZE для сравнения с п.6
 EXPLAIN ANALYZE
 SELECT *
@@ -164,8 +141,6 @@ SELECT COUNT(*)
 FROM orders
 WHERE notes ILIKE '%Camera%';
 
-\timing off
-
 -- ИТОГОВАЯ СТАТИСТИКА
 -- Информация об индексах
 SELECT
@@ -183,9 +158,8 @@ SELECT
 -- Детальная информация по каждому индексу
 SELECT
     schemaname,
-    tablename,
-    indexname,
+    relname AS tablename,
+    indexrelname AS indexname,
     pg_size_pretty(pg_relation_size(indexrelid)) AS index_size
 FROM pg_stat_user_indexes
-WHERE tablename = 'orders';
-
+WHERE relname = 'orders';
