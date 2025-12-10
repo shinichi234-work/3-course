@@ -1,0 +1,15 @@
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\bin\Debug\net10.0\HM8.exe
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\bin\Debug\net10.0\HM8.deps.json
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\bin\Debug\net10.0\HM8.runtimeconfig.json
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\bin\Debug\net10.0\HM8.dll
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\bin\Debug\net10.0\HM8.pdb
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.sourcelink.json
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.dll
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\refint\HM8.dll
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.pdb
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\HM8.genruntimeconfig.cache
+C:\Users\user\Documents\GitHub\3-course\ООП_Agile\HM8\HM8\obj\Debug\net10.0\ref\HM8.dll
