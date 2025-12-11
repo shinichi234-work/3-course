@@ -1,0 +1,1 @@
+[[(n - 1 - i) * m + (m - 1 - j) for j in range(m)] for i in range(n)]

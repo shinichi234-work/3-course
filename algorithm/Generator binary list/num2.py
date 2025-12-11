@@ -1,0 +1,1 @@
+[[(j - i) % 3 for j in range(m)] for i in range(n)]
